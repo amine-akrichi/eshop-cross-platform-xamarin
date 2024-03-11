@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eshop.Views.PageProduits"
+             Title="Liste des Produits">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ajouter"
+                     Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="productListView"
+                      ItemsSource="{Binding Produits}"
+                      SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
+                      ItemSelected="OnItemSelected"
+                      RowHeight="100"
+                      SeparatorColor="Black">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="EditMenuItem_Clicked" CommandParameter="{Binding .}" Text="Modifier" />
+                                <MenuItem Clicked="DeleteMenuItem_Clicked" CommandParameter="{Binding .}" Text="Supprimer" />
+                            </ViewCell.ContextActions>
+                            <StackLayout HeightRequest="100" Orientation="Horizontal" Padding="10">
+                                <Image Source="{Binding UrlImage}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" />
+                                <StackLayout HeightRequest="100" VerticalOptions="Center">
+                                    <Label TextColor="Black" FontSize="20" Text="{Binding Nom}" FontAttributes="Bold" />
+                                    <Label TextColor="Black" FontSize="16" Text="{Binding Description}" />
+                                    <Label TextColor="Black" Text="{Binding Prix}" />
+                                    <!-- Add other properties as needed -->
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

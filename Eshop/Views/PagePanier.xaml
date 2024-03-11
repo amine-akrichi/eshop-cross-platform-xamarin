@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eshop.Views.PagePanier"
+             Title="Votre panier">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView Margin="10" x:Name="listPanier" ItemsSource="{Binding Panier.Articles}" SeparatorColor="Black" RowHeight="150" BackgroundColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!-- Customize the appearance of each item in the cart -->
+                            <StackLayout HeightRequest="150">
+                                <Label FontAttributes="Bold" FontSize="20" TextColor="Black" Text="{Binding NomProduit}" />
+                                <Label TextColor="Black" FontSize="18" Text="{Binding PrixUnitaire}" />
+                                <Label TextColor="Black" x:Name="quantityLabel" Text="{Binding Quantite}" />
+                                <!-- Add more labels or controls as needed -->
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                    <Button x:Name="b1" Text="-" Clicked="DecreaseQuantity_Clicked" CommandParameter="{Binding .}" />
+                                    <Button x:Name="b2"  Text="+" Clicked="IncreaseQuantity_Clicked" CommandParameter="{Binding .}" />
+                                </StackLayout>
+                            </StackLayout>
+                            
+                        </ViewCell>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Display total price -->
+            <Label x:Name="total" TextColor="Black" Text="{Binding Panier.CalculerTotal}" />
+
+            <!-- Add a button to clear the cart -->
+            <Button Margin="5" Text="Vider le panier" BackgroundColor="#DF2E38" Clicked="ViderPanier_Clicked" />
+            <Button Margin="5" Text="Valider commande" BackgroundColor="#4F6F52" Clicked="ValiderCommande_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Categories"
+             x:Class="Eshop.Views.Categories">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <ListView x:Name="categoryListView"
+                      ItemsSource="{Binding CategorieList}"
+                      HasUnevenRows="True"
+                      RowHeight="100"
+                      >
+                
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="-1" Padding="10" BackgroundColor="White" >
+                                <Button Clicked="Button_Clicked" HeightRequest="100" Margin="10" Padding="2" BackgroundColor="#eee" FontSize="24" TextColor="{StaticResource Primary}" Text="{Binding Nom}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

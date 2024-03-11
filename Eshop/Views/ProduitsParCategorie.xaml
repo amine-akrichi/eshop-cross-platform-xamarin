@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eshop.Views.ProduitsParCategorie">
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Products}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"
+                                 
+                                />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame HasShadow="True"
+                           BorderColor="LightGray"
+                           Padding="5"
+                           Margin="10"
+                           VerticalOptions="Center">
+                        <StackLayout>
+                            <Image Source="{Binding UrlImage}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="150"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   />
+                            <Label Text="{Binding Nom}"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   Margin="5, 0, 0, 0"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding Description}"
+                          
+                                   FontSize="14"
+                                   Margin="5, 0, 0, 0"
+                                   TextColor="Black"/>
+                          
+                            <Label Text="{Binding Prix, StringFormat='{0} DT'}"
+                                   FontSize="18"
+                                   Margin="5, 0, 0, 0"
+                                   TextColor="#5D9C59"
+                                   FontAttributes="Bold"
+                                   />
+                            <Button Text="Ajouter au panier" Clicked="Button_Clicked"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

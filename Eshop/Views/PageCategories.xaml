@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eshop.Views.PageCategories">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ajouter" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="categoryListView"
+                      ItemsSource="{Binding Categories}" 
+                      RowHeight="50"
+                      SeparatorColor="Black">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="EditMenuItem_Clicked" CommandParameter="{Binding .}" Text="Modifier" />
+                                <MenuItem Clicked="DeleteMenuItem_Clicked" CommandParameter="{Binding .}" Text="Supprimer" />
+                            </ViewCell.ContextActions>
+                            <StackLayout>
+                                <Label VerticalTextAlignment="Center" HeightRequest="50" Margin="10" LineHeight="1" Padding="2" FontSize="18" TextColor="Black" Text="{Binding Nom}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eshop.Views.ModifierCategorie">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label  TextColor="{StaticResource Primary}"  HorizontalTextAlignment="Center" FontSize="30" Margin="20">Modifier Categorie</Label>
+            <Entry Placeholder="Nom" TextColor="Black"  PlaceholderColor="Black"  x:Name="Nom" />
+            <Button Text="Enregistrer" x:Name="Add_btn" Clicked="Update_btn_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eshop.Views.PageCommandes"
+             Title="Liste des Commandes">
+    <ContentPage.Content>
+        <StackLayout>
+           
+            <ListView x:Name="commandListView"
+          ItemsSource="{Binding Commandes}"
+          SelectedItem="{Binding SelectedCommand, Mode=TwoWay}"
+          ItemSelected="OnCommandSelected"
+          RowHeight="50"
+          SeparatorColor="Black">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label TextColor="Black" FontSize="20" Text="{Binding NomClient}" />
+                                <!-- Add more labels or controls as needed for displaying order details -->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

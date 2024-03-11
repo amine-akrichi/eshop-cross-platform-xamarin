@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eshop.Views.AjoutCategorie">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label  TextColor="{StaticResource Primary}"  HorizontalTextAlignment="Center" FontSize="30" Margin="20">Nouvelle Categorie</Label>
+            <Entry Placeholder="Nom" TextColor="Black"  PlaceholderColor="Black"  x:Name="categoryNameEntry" />
+            <Button Text="Ajouter Categorie" x:Name="Add_btn" Clicked="Add_btn_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
